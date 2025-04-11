@@ -8,6 +8,9 @@
     검수자 페르소나를 설정해둔 후, 해당 보고자료가 잘 만들어졌는지, 어떤 부분을 추가하면 좋을지 알려주는 기능 있으면 좋겠음
 """
 
+# ✅ KAISIS(KCCI AI Social Impact Simulator)
+# KCCI 보도자료 및 정책보고서의 사회적·산업적 영향력 분석 시뮬레이터
+
 import streamlit as st
 from transformers import BartForConditionalGeneration, PreTrainedTokenizerFast, AutoTokenizer
 from transformers import pipeline as hf_pipeline
@@ -21,14 +24,26 @@ import requests
 import openai
 from openai import OpenAI
 
-# ✅ Streamlit 페이지 설정
-st.set_page_config(page_title="KCCI 산업별 감성 시뮬레이터", layout="wide")
-st.title("📊 산업별 감성 + 영향도 분석 시뮬레이터")
-st.markdown("보도자료가 산업별로 어떤 정서와 영향을 주는지 자동 분석하고 시각화합니다.")
+# ✅ Streamlit 페이지 설정 (브랜드 적용)
+st.set_page_config(
+    page_title="KAISIS | 보도자료 영향력 분석 시뮬레이터",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
 
-# ✅ Chatgpt API 설정
+# ✅ 페이지 헤더
+st.markdown("""
+# 📊 KAISIS: KCCI AI Social Impact Simulator
+> **대한상공회의소 보도자료·정책보고서의 사회적·산업적 영향력 분석 시뮬레이터**
+
+본 서비스는 생성형 인공지능을 활용하여 KCCI의 보도자료 및 정책 보고서가 우리 사회와 산업에 미치는 정성적·정량적 영향을 분석합니다. 정책 대응을 위한 시사점 도출과 영향도 시각화를 지원합니다.
+""")
+
+# ✅ ChatGPT API 설정 (GPT-4o)
 openai.api_key = st.secrets.get("openai_api_key", "")
-oai_client = OpenAI(api_key=st.secrets.get("openai_api_key", ""))
+oai_client = OpenAI(api_key=openai.api_key)
+
 
 # ✅ 모델 로드 및 캐싱
 @st.cache_resource

@@ -7,6 +7,11 @@
 
 ---
 
+## 👥 기획·개발
+KCCI 대한상공회의소 IT지원팀 김현우
+
+---
+
 ## 🧭 서비스 개요
 
 > "KAISIS는 보도자료가 대한민국 사회에 미치는 영향력을 정량·정성 분석하여  
@@ -55,5 +60,4 @@ openai_api_key = "sk-..."
 ```bash
 streamlit run impact_simulator.py
 ```
-👥 기획·개발
-KCCI 대한상공회의소 IT지원팀 김현우
+

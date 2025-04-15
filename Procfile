@@ -1,0 +1,1 @@
+streamlit run impact_simulator.py --global.developmentMode false

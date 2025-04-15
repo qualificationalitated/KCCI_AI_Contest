@@ -11,6 +11,10 @@
 # ✅ KAISIS(KCCI AI Social Impact Simulator)
 # KCCI 보도자료 및 정책보고서의 사회적·산업적 영향력 분석 시뮬레이터
 
+# Pytorch Fork 방지 설정
+import os
+os.environ["PYTORCH_NO_FORK"] = "1"
+
 import streamlit as st
 from transformers import BartForConditionalGeneration, PreTrainedTokenizerFast, AutoTokenizer
 from transformers import pipeline as hf_pipeline

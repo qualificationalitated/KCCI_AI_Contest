@@ -1,8 +1,9 @@
-streamlit
-transformers
-torch
-pandas
-scikit-learn
-plotly
-requests
+streamlit>=1.20.0
+transformers>=4.30.0
+torch>=1.13.0
+pandas>=1.5.0
+scikit-learn>=1.1.0
+plotly>=5.0.0
+requests>=2.25.0
+huggingface_hub[hf_xet]
 openai>=1.0.0
